@@ -1,0 +1,22 @@
+<!-- {{test}} -->
+
+<h2>{{ test.name | lowercase}} Details</h2>
+<div><span>id: gyg</span>{{test.id}}</div>
+<div><span>name: </span>{{test.name}}</div>
+<div >
+    <label>name:
+      <input [(ngModel)]="test.name" placeholder="name">
+    </label>
+</div>
+<div *ngIf="selectedHero">
+<label>name:
+    <input [(ngModel)]="selectedHero.name" placeholder="name">
+  </label>
+  </div>
+<h2>My Heroes</h2>
+<ul class="text1">
+  <li *ngFor="let test of test2" [class.selected]="test === selectedHero" (click)="onSelect(test)">
+    <span class="badge">{{test.id}}</span> {{test.name}}
+  </li>
+</ul>
+<app-text-detail [test]="selectedHero"></app-text-detail>
